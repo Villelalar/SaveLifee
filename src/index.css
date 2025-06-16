@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  padding: 20px;
+}
+
+.page-title {
+  margin-bottom: 20px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.card-item {
+  margin-bottom: 16px;
+  transition: transform 0.2s;
+}
+
+.card-item:hover {
+  transform: translateY(-3px);
+}
+
+.action-button {
+  margin-right: 8px !important;
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.full-width {
+  width: 100%;
+}
