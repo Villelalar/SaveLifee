@@ -116,16 +116,32 @@ const MedicationList = () => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     
-    // For each scheduled time of the medication today, check if it was taken
+    // For each scheduled time 
     const medication = medications.find(med => med.id === medicationId);
-    if (!medication || !medication.schedule || medication.schedule.length === 0) {
+    
+    if (!medication || !medication.schedule) {
       return { taken: false, skipped: false };
     }
     
     let taken = false;
     let skipped = false;
+    let scheduleTimes = [];
     
-    medication.schedule.forEach(time => {
+    // Handle both schedule formats
+    if (Array.isArray(medication.schedule)) {
+      // Old format: schedule is directly an array of times
+      scheduleTimes = medication.schedule;
+    } else if (medication.schedule.times && Array.isArray(medication.schedule.times)) {
+      // New format: schedule is an object with a times property
+      scheduleTimes = medication.schedule.times;
+    }
+    
+    // If no valid schedule format or empty schedule
+    if (scheduleTimes.length === 0) {
+      return { taken: false, skipped: false };
+    }
+    
+    scheduleTimes.forEach(time => {
       const status = checkMedicationTaken(medicationId, time);
       if (status) {
         if (status.taken) taken = true;

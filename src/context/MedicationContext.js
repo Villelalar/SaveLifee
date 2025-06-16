@@ -184,6 +184,11 @@ export const MedicationProvider = ({ children }) => {
   
   // Check if a medication was taken at a specific scheduled time
   const checkMedicationTaken = (medicationId, scheduledTime, date = new Date()) => {
+    // Safety check - if no medicationId or scheduledTime, return null
+    if (!medicationId || !scheduledTime) {
+      return null;
+    }
+    
     // Format date to YYYY-MM-DD
     const formattedDate = date.toISOString().split('T')[0];
     

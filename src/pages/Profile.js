@@ -20,7 +20,8 @@ import {
   Save as SaveIcon,
   Visibility,
   VisibilityOff,
-  SupervisorAccount as SupervisorIcon
+  SupervisorAccount as SupervisorIcon,
+  LocalHospital as MedicalIcon
 } from '@mui/icons-material';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
